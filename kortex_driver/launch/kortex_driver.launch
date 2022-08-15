@@ -107,7 +107,12 @@
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
         <!-- Start RViz -->
-        <node name="rviz" pkg="rviz" type="rviz" output="log" args="-f base_link" if="$(arg start_rviz)"/> 
+<!--         <node name="rviz" pkg="rviz" type="rviz" output="log" args="-f base_link" if="$(arg start_rviz)"/> 
+            <arg name="rviz_config" value="$(find rviz_config)/kinova_rviz.rviz"/> -->
+
+        <include file="$(find gen3_lite_gen3_lite_2f_move_it_config)/launch/moveit_rviz.launch">
+            <arg name="rviz_config" value="$(find rviz_config)/kinova_rviz.rviz"/>
+        </include>
 
         <!-- Tests -->
         <!-- Initialization test and custom functional tests -->
