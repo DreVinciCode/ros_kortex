@@ -1,3 +1,14 @@
+
+
+
+```
+roslaunch kortex_driver kortex_driver.launch arm:=gen3_lite dof:=6 start_rviz:=true
+```
+
+
+
+
+
 # ros_kortex
 ROS Kortex is the official ROS package to interact with Kortex and its related products. It is built upon the Kortex API, documentation for which can be found in the [GitHub Kortex repository](https://github.com/Kinovarobotics/kortex).
 
