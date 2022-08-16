@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <launch>
+
+    <node pkg="kortex_driver" name="TwistMessageConverter" type="ConvertTwistToTwistCommand.py" output="screen">
+    </node>
     
     <!-- Arm configuration -->
     <arg name="arm" default="gen3"/>
