@@ -9,8 +9,7 @@ import rospy
 class messageConverter:
 
     def __init__(self):
-    	rospy.init_node('Test', anonymous = True)
-
+    	rospy.init_node('TwistToTwistCommand', anonymous = True)
 
     	self.Twist_sub = rospy.Subscriber("/my_gen3_lite/in/cartesian_velocity_mod", Twist, self.twist_callback)
 

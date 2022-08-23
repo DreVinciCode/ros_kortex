@@ -4,6 +4,9 @@
     <node pkg="kortex_driver" name="TwistMessageConverter" type="ConvertTwistToTwistCommand.py" output="screen">
     </node>
     
+<!--     <node pkg="kortex_driver" name="GripperController" type="GripperController.py" output="screen">
+    </node>
+ -->    
     <!-- Arm configuration -->
     <arg name="arm" default="gen3"/>
     <arg name="dof" default="7" if="$(eval arg('arm') == 'gen3')"/> <!-- Number of degrees of freedom of the arm -->
