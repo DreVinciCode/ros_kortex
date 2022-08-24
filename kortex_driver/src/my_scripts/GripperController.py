@@ -60,12 +60,8 @@ class ExampleFullArmMovement:
             finger.value = gripper_pose
             req.input.gripper.finger.append(finger)
             req.input.mode = GripperMode.GRIPPER_POSITION
-
             # rospy.loginfo(GripperMode.GRIPPER_POSITION)
-
-
             self.send_gripper_command(req)
-
             time.sleep(1)
 
 
