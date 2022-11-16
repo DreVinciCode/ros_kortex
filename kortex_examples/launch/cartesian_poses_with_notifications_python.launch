@@ -1,7 +1,7 @@
     <launch>
 
         <!-- Robot namespace -->
-        <arg name="robot_name" default="my_gen3"/>
+        <arg name="robot_name" default="my_gen3_lite"/>
         <arg name="start_delay_seconds" default="0"/>
     
         <!-- Launch the example in that namespace -->
