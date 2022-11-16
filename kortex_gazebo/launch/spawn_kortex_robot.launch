@@ -163,8 +163,13 @@
         </test> 
 
         <!-- Start RViz -->
-        <node name="rviz" pkg="rviz" type="rviz" if="$(arg start_rviz)"> 
-        </node>
+        <!-- <node name="rviz" pkg="rviz" type="rviz" if="$(arg start_rviz)"> 
+        </node> -->
+
+        <include file="$(find gen3_lite_gen3_lite_2f_move_it_config)/launch/moveit_rviz.launch">
+            <arg name="rviz_config" value="$(find kinova_ar)/rviz_configs/gazebo_kinova_rviz.rviz"/>
+        </include>
+
 
     </group>
 
