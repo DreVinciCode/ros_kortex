@@ -167,7 +167,7 @@
         </node> -->
 
         <include file="$(find gen3_lite_gen3_lite_2f_move_it_config)/launch/moveit_rviz.launch">
-            <arg name="rviz_config" value="$(find kinova_ar)/rviz_configs/gazebo_kinova_rviz.rviz"/>
+            <arg name="rviz_config" value="$(find kinova_ar)/rviz_configs/Multiple_Trajectories.rviz"/>
         </include>
 
 

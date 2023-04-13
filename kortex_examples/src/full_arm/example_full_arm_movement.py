@@ -27,7 +27,7 @@ class ExampleFullArmMovement:
             self.HOME_ACTION_IDENTIFIER = 2
 
             # Get node params
-            self.robot_name = rospy.get_param('~robot_name', "my_gen3")
+            self.robot_name = rospy.get_param('~robot_name', "my_gen3_lite")
             self.degrees_of_freedom = rospy.get_param("/" + self.robot_name + "/degrees_of_freedom", 7)
             self.is_gripper_present = rospy.get_param("/" + self.robot_name + "/is_gripper_present", False)
 

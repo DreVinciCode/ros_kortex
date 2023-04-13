@@ -30,7 +30,7 @@ class ExampleCartesianActionsWithNotifications:
             self.all_notifs_succeeded = True
 
             # Get node params
-            self.robot_name = rospy.get_param('~robot_name', "my_gen3")
+            self.robot_name = rospy.get_param('~robot_name', "my_gen3_lite")
 
             rospy.loginfo("Using robot_name " + self.robot_name)
 
