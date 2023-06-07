@@ -5,7 +5,6 @@
   <!-- Propagate last link name information because it is the gripper's parent link -->
   <xacro:property name="last_arm_link" value="dummy_link"/>
 
-  <xacro:macro name="load_arm" params="parent:='' dof vision prefix *origin">
 
     <link name="table_link">
       <visual>
@@ -23,6 +22,29 @@
       <origin xyz="0.25 0 -0.0627" rpy="0 0 1.57"/>
     </joint>
 
+    <link name="cup_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.125" radius="0.0425"/>
+        </geometry>
+        <material name="white">
+          <color rgba="1 1 1 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/base_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="cup_joint" type="fixed">
+      <parent link="${prefix}end_effector_link"/>
+      <child link="cup_link"/>
+      <origin xyz="0.0 0 0.12" rpy="0 1.57 0"/>
+    </joint>
+
+  <xacro:macro name="load_arm" params="parent:='' dof vision prefix *origin">
     <link name="${prefix}base_link">
       <inertial>
         <origin xyz="0.00244324 0.00015573 0.08616742" rpy="0 0 0" />
