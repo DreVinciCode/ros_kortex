@@ -35,7 +35,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
