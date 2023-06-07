@@ -45,6 +45,29 @@
       <origin xyz="0.0 0 0.12" rpy="-1.57 03.14 0"/>
     </joint>
 
+    <link name="cup_link2">
+      <visual>
+        <geometry>
+          <!-- <cylinder length="0.125" radius="0.0425"/> -->
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="white">
+          <color rgba="1 1 1 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="cup_joint2" type="fixed">
+      <parent link="table_link"/>
+      <child link="cup_link2"/>
+      <origin xyz="0.15 -0.23 0.0625" rpy="0 1.57 0"/>
+    </joint>
+
   <xacro:macro name="load_arm" params="parent:='' dof vision prefix *origin">
     <link name="${prefix}base_link">
       <inertial>
