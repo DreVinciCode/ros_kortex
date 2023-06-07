@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <launch>
   
+    <arg name="rviz_config" default=""/>
+
+
     <!-- Arm configuration -->
     <arg name="arm" default="gen3_lite"/>
     <arg name="dof" default="7" if="$(eval arg('arm') == 'gen3')"/> <!-- Number of degrees of freedom of the arm -->
@@ -74,7 +77,7 @@
             <param name="use_hard_limits" value="$(arg use_hard_limits)"/>
             <param name="robot_name" value="$(arg robot_name)"/>
             <param name="prefix" value="$(arg prefix)"/>
-            <rosparam command="load" file="$(find kortex_description)/arms/$(arg arm)/$(arg dof)dof/config/joint_limits.yaml" subst_value="true"/>
+            <rosparam command="load" file="$(find kortex_description)/arms/$(arg arm)/$(arg dof)dof/config/kinova_ar_joint_limits.yaml" subst_value="true"/>
             <!-- If there is a gripper, load the active joint names for it -->
             <rosparam command="load" file="$(find kortex_description)/grippers/$(arg gripper)/config/joint_limits.yaml" unless="$(eval not arg('gripper'))" subst_value="true"/>
         </node>
@@ -111,7 +114,7 @@
             <!-- <arg name="rviz_config" value="$(find rviz_config)/kinova_rviz.rviz"/> -->
 
         <include file="$(find gen3_lite_gen3_lite_2f_move_it_config)/launch/moveit_rviz.launch">
-            <arg name="rviz_config" value="$(find kinova_ar)/rviz_configs/Multiple_Trajectories.rviz"/>
+            <arg name="rviz_config" value="$(arg rviz_config)"/>
         </include>
 
         <!-- Tests -->
@@ -127,7 +130,7 @@
             <param name="arm" value="$(arg arm)"/>
             <param name="gripper" value="$(arg gripper)"/>
             <param name="dof" value="$(arg dof)"/>
-            <rosparam command="load" file="$(find kortex_description)/arms/$(arg arm)/$(arg dof)dof/config/joint_limits.yaml" subst_value="true"/>
+            <rosparam command="load" file="$(find kortex_description)/arms/$(arg arm)/$(arg dof)dof/config/kinova_ar_joint_limits.yaml" subst_value="true"/>
             <!-- If there is a gripper, load the active joint names for it -->
             <rosparam command="load" file="$(find kortex_description)/grippers/$(arg gripper)/config/joint_limits.yaml" unless="$(eval not arg('gripper'))" subst_value="true"/>
         </test>
