@@ -5,6 +5,26 @@
   <!-- Propagate last link name information because it is the gripper's parent link -->
   <xacro:property name="last_arm_link" value="dummy_link"/>
 
+  <!--Delete table_link for base  -->
+    <link name="table_link">
+      <visual>
+        <geometry>
+          <box size="1.2192 0.6096 0.0254"/>
+        </geometry>
+        <material name="white">
+          <color rgba="1 1 1 1"/>
+        </material>
+      </visual>
+    </link>
+    <joint name="table_joint" type="fixed">
+      <parent link="${prefix}base_link"/>
+      <child link="table_link"/>
+      <origin xyz="0.25 0 -0.0627" rpy="0 0 1.57"/>
+    </joint>
+
+
+
+
   <xacro:macro name="load_arm" params="parent:='' dof vision prefix *origin">
     <link name="${prefix}base_link">
       <inertial>

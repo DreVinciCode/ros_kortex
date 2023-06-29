@@ -22,14 +22,14 @@
       <origin xyz="0.25 0 -0.0627" rpy="0 0 1.57"/>
     </joint>
 
-    <link name="cup_link">
+    <link name="source_cup">
       <visual>
         <geometry>
           <!-- <cylinder length="0.125" radius="0.0425"/> -->
           <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
         </geometry>
-        <material name="white">
-          <color rgba="1 1 1 1"/>
+        <material name="green">
+          <color rgba="0 1 0 1"/>
         </material>
       </visual>
       <collision>
@@ -41,12 +41,15 @@
     </link>
     <joint name="cup_joint" type="fixed">
       <parent link="${prefix}end_effector_link"/>
-      <child link="cup_link"/>
+      <child link="source_cup"/>
       <origin xyz="0.0 0 0.12" rpy="-1.57 03.14 0"/>
     </joint>
 
-    <link name="cup_link2">
+
+
+    <link name="target_cup0">
       <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <!-- <cylinder length="0.125" radius="0.0425"/> -->
           <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
@@ -62,11 +65,88 @@
         </geometry>
       </collision>
     </link>
-    <joint name="cup_joint2" type="fixed">
+    <joint name="cup_joint0" type="fixed">
       <parent link="table_link"/>
-      <child link="cup_link2"/>
+      <child link="target_cup0"/>
       <origin xyz="0.15 -0.23 0.0625" rpy="0 1.57 0"/>
     </joint>
+
+
+    <link name="target_cup1">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <!-- <cylinder length="0.125" radius="0.0425"/> -->
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="white">
+          <color rgba="1 1 1 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="cup_joint1" type="fixed">
+      <parent link="table_link"/>
+      <child link="target_cup1"/>
+      <origin xyz="0.0 -0.23 0.0625" rpy="0 1.57 0"/>
+    </joint>
+
+
+    <link name="target_cup34">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <!-- <cylinder length="0.125" radius="0.0425"/> -->
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="white">
+          <color rgba="1 1 1 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="cup_joint34" type="fixed">
+      <parent link="table_link"/>
+      <child link="target_cup34"/>
+      <origin xyz="0.15 -0.23 0.0625" rpy="0 0 0"/>
+    </joint>
+
+
+    <link name="target_cup2">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <!-- <cylinder length="0.125" radius="0.0425"/> -->
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/Can.stl" />
+        </geometry>
+        <material name="white">
+          <color rgba="1 1 1 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/Can.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="cup_joint3" type="fixed">
+      <parent link="table_link"/>
+      <child link="target_cup2"/>
+      <origin xyz="0.0 -0.23 0.0625" rpy="0 1.57 0"/>
+    </joint>
+
+
 
   <xacro:macro name="load_arm" params="parent:='' dof vision prefix *origin">
     <link name="${prefix}base_link">

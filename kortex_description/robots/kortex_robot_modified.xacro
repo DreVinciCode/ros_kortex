@@ -5,7 +5,8 @@
     <xacro:macro name="load_robot" params="arm gripper dof vision sim prefix">
             
         <!-- Files to include -->
-        <xacro:include filename="$(find kortex_description)/arms/${arm}/${dof}dof/urdf/${arm}_macro.xacro" />
+        <!-- <xacro:include filename="$(find kortex_description)/arms/${arm}/${dof}dof/urdf/${arm}_macro.xacro" /> -->
+        <xacro:include filename="$(find kortex_description)/arms/${arm}/${dof}dof/urdf/gen3_lite_macro_modified.xacro" />
 
 
         <xacro:unless value="${not gripper}">
