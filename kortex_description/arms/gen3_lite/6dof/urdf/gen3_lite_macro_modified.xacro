@@ -45,30 +45,72 @@
       <origin xyz="0.0 0 0.12" rpy="-1.57 03.14 0"/>
     </joint>
 
-
-
-    <link name="target_cup0">
+    <link name="coffee_cup">
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <!-- <cylinder length="0.125" radius="0.0425"/> -->
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/papercup.stl" scale="1 1 1"/>
         </geometry>
-        <material name="white">
-          <color rgba="1 1 1 1"/>
+        <material name="green">
+          <color rgba="0 1 0 1"/>
         </material>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/papercup.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
-    <joint name="cup_joint0" type="fixed">
-      <parent link="table_link"/>
-      <child link="target_cup0"/>
-      <origin xyz="0.15 -0.23 0.0625" rpy="0 1.57 0"/>
+    <joint name="papercup_joint" type="fixed">
+      <parent link="${prefix}end_effector_link"/>
+      <child link="coffee_cup"/>
+      <origin xyz="0.0 0 0.12" rpy="-1.57 0 -1.57"/>
+    </joint>
+
+
+    <link name="soda_can">
+      <visual>
+        <geometry>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/beverage_can.fbx" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="green">
+          <color rgba="0 1 0 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/beverage_can.fbx" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="sodacan_joint" type="fixed">
+      <parent link="${prefix}end_effector_link"/>
+      <child link="soda_can"/>
+      <origin xyz="-0.04 0.0 0.12" rpy="0 0 -1.57"/>
+    </joint>
+
+
+    <link name="water_bottle">
+      <visual>
+        <geometry>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/water_bottle.stl" scale="1 1 1"/>
+        </geometry>
+        <material name="green">
+          <color rgba="0 1 0 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/water_bottle.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="waterbottle_joint" type="fixed">
+      <parent link="${prefix}end_effector_link"/>
+      <child link="water_bottle"/>
+      <origin xyz="0.0 0.0 0.12" rpy="0 1.57 0"/>
     </joint>
 
 
@@ -95,58 +137,6 @@
       <child link="target_cup1"/>
       <origin xyz="0.0 -0.23 0.0625" rpy="0 1.57 0"/>
     </joint>
-
-
-    <link name="target_cup34">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <!-- <cylinder length="0.125" radius="0.0425"/> -->
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
-        </geometry>
-        <material name="white">
-          <color rgba="1 1 1 1"/>
-        </material>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
-        </geometry>
-      </collision>
-    </link>
-    <joint name="cup_joint34" type="fixed">
-      <parent link="table_link"/>
-      <child link="target_cup34"/>
-      <origin xyz="0.15 -0.23 0.0625" rpy="0 0 0"/>
-    </joint>
-
-
-    <link name="target_cup2">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <!-- <cylinder length="0.125" radius="0.0425"/> -->
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/Can.stl" />
-        </geometry>
-        <material name="white">
-          <color rgba="1 1 1 1"/>
-        </material>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/Can.stl"/>
-        </geometry>
-      </collision>
-    </link>
-    <joint name="cup_joint3" type="fixed">
-      <parent link="table_link"/>
-      <child link="target_cup2"/>
-      <origin xyz="0.0 -0.23 0.0625" rpy="0 1.57 0"/>
-    </joint>
-
-
 
   <xacro:macro name="load_arm" params="parent:='' dof vision prefix *origin">
     <link name="${prefix}base_link">

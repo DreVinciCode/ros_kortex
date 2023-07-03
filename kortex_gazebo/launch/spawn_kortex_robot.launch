@@ -48,7 +48,7 @@
         <param name="robot_description" command="$(find xacro)/xacro --inorder $(find kortex_description)/robots/$(arg arm).xacro dof:=$(arg dof) vision:=$(arg vision) sim:=true prefix:=$(arg prefix)"
             if="$(eval not arg('gripper'))"/>
         <!-- With gripper -->
-        <param name="robot_description" command="$(find xacro)/xacro --inorder $(find kortex_description)/robots/$(arg arm)_$(arg gripper).xacro dof:=$(arg dof) vision:=$(arg vision) sim:=true prefix:=$(arg prefix)"
+        <param name="robot_description" command="$(find xacro)/xacro --inorder $(find kortex_description)/robots/$(arg arm)_$(arg gripper)_modified.xacro dof:=$(arg dof) vision:=$(arg vision) sim:=true prefix:=$(arg prefix)"
             unless="$(eval not arg('gripper'))"/>
 
         <!-- Spawn the robot in Gazebo -->
@@ -167,7 +167,7 @@
         </node> -->
 
         <include file="$(find gen3_lite_gen3_lite_2f_move_it_config)/launch/moveit_rviz.launch">
-            <arg name="rviz_config" value="$(find kinova_ar)/rviz_configs/Multiple_Trajectories.rviz"/>
+            <arg name="rviz_config" value="$(find kinova_ar)/rviz_configs/kinova_rviz.rviz"/>
         </include>
 
 
