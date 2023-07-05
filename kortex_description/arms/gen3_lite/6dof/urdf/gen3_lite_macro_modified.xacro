@@ -91,10 +91,10 @@
     </joint>
 
 
-    <link name="water_bottle">
+    <!-- <link name="beer_bottle">
       <visual>
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/water_bottle.stl" scale="1 1 1"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/beer_bottle.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="green">
           <color rgba="0 1 0 1"/>
@@ -103,15 +103,15 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/water_bottle.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/beer_bottle.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
     <joint name="waterbottle_joint" type="fixed">
       <parent link="${prefix}end_effector_link"/>
-      <child link="water_bottle"/>
-      <origin xyz="0.0 0.0 0.12" rpy="0 1.57 0"/>
-    </joint>
+      <child link="beer_bottle"/>
+      <origin xyz="0.0 0.0 0.1" rpy="0 1.57 0"/>
+    </joint> -->
 
 
     <link name="target_cup1">
