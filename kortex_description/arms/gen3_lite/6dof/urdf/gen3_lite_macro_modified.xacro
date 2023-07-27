@@ -5,7 +5,6 @@
   <!-- Propagate last link name information because it is the gripper's parent link -->
   <xacro:property name="last_arm_link" value="dummy_link"/>
 
-
     <link name="table_link">
       <visual>
         <geometry>
@@ -22,11 +21,10 @@
       <origin xyz="0.25 0 -0.0627" rpy="0 0 1.57"/>
     </joint>
 
-    <link name="source_cup">
+    <link name="10_Mug">
       <visual>
         <geometry>
-          <!-- <cylinder length="0.125" radius="0.0425"/> -->
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/10_mug.fbx" scale="1 1 1"/>
         </geometry>
         <material name="green">
           <color rgba="0 1 0 1"/>
@@ -35,20 +33,20 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/MugCylinder.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/10_mug.fbx" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
-    <joint name="cup_joint" type="fixed">
+    <joint name="mug_joint" type="fixed">
       <parent link="${prefix}end_effector_link"/>
-      <child link="source_cup"/>
-      <origin xyz="0.0 0 0.12" rpy="-1.57 03.14 0"/>
+      <child link="10_Mug"/>
+      <origin xyz="0.0 0 0" rpy="0 0 0"/>
     </joint>
 
-    <link name="coffee_cup">
+    <link name="09_PaperCup">
       <visual>
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/papercup.stl" scale="1 1 1"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/09_Paper_cup.fbx" scale="1 1 1"/>
         </geometry>
         <material name="green">
           <color rgba="0 1 0 1"/>
@@ -57,21 +55,21 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/papercup.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/09_Paper_cup.fbx" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
     <joint name="papercup_joint" type="fixed">
       <parent link="${prefix}end_effector_link"/>
-      <child link="coffee_cup"/>
-      <origin xyz="0.0 0 0.12" rpy="-1.57 0 -1.57"/>
+      <child link="09_PaperCup"/>
+      <origin xyz="0.0 0 0" rpy="0 0 0"/>
     </joint>
 
 
-    <link name="soda_can">
+    <link name="01_Can">
       <visual>
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/beverage_can.fbx" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/01_Can.fbx" scale="1 1 1"/>
         </geometry>
         <material name="green">
           <color rgba="0 1 0 1"/>
@@ -80,21 +78,21 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/beverage_can.fbx" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/01_Can.fbx" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
     <joint name="sodacan_joint" type="fixed">
       <parent link="${prefix}end_effector_link"/>
-      <child link="soda_can"/>
-      <origin xyz="-0.04 0.0 0.12" rpy="0 0 -1.57"/>
+      <child link="01_Can"/>
+      <origin xyz="-0.0 0.0 0" rpy="0 0 0"/>
     </joint>
 
 
-    <!-- <link name="beer_bottle">
+    <link name="07_Rootbeer">
       <visual>
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/beer_bottle.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/08_beerbottle.fbx"/>
         </geometry>
         <material name="green">
           <color rgba="0 1 0 1"/>
@@ -103,18 +101,18 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/beer_bottle.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/08_beerbottle.fbx" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
-    <joint name="waterbottle_joint" type="fixed">
+    <joint name="beer_bottle_joint" type="fixed">
       <parent link="${prefix}end_effector_link"/>
-      <child link="beer_bottle"/>
-      <origin xyz="0.0 0.0 0.1" rpy="0 1.57 0"/>
-    </joint> -->
+      <child link="07_Rootbeer"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </joint>
 
 
-    <link name="target_cup1">
+    <link name="Target_Cup">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -134,7 +132,7 @@
     </link>
     <joint name="cup_joint1" type="fixed">
       <parent link="table_link"/>
-      <child link="target_cup1"/>
+      <child link="Target_Cup"/>
       <origin xyz="0.0 -0.23 0.0625" rpy="0 1.57 0"/>
     </joint>
 
