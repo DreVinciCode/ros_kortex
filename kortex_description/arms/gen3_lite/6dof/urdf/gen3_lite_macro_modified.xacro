@@ -18,7 +18,7 @@
     <joint name="table_joint" type="fixed">
       <parent link="${prefix}base_link"/>
       <child link="table_link"/>
-      <origin xyz="0.25 0 -0.0627" rpy="0 0 1.57"/>
+      <origin xyz="0.25 0 -0.05" rpy="0 0 1.57"/>
     </joint>
 
     <link name="01_Can">
@@ -112,7 +112,7 @@
     <link name="05_sports_bottle">
       <visual>
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/05_sports_bottle.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/05_sports_bottle.stl" scale="0.011 0.01 0.01"/>
         </geometry>
         <material name="green">
           <color rgba="0 1 0 1"/>
@@ -128,7 +128,9 @@
     <joint name="sport_joint" type="fixed">
       <parent link="${prefix}end_effector_link"/>
       <child link="05_sports_bottle"/>
-      <origin xyz="-0.155 0 0.115" rpy="1.57 0 0"/>
+      <origin xyz="-0.185 0 0.115" rpy="1.57 0 0"/>
+      <!-- <origin xyz="-0.155 0 0.115" rpy="1.57 0 0"/> -->
+
     </joint>
 
     <link name="06_tumbler">
@@ -178,7 +180,7 @@
     <link name="08_beerbottle">
       <visual>
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/08_beerbottle.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/08_beerbottle.stl" scale="0.011 0.01 0.01"/>
         </geometry>
         <material name="green">
           <color rgba="0 1 0 1"/>
@@ -194,7 +196,9 @@
     <joint name="rootbeer_joint" type="fixed">
       <parent link="${prefix}end_effector_link"/>
       <child link="08_beerbottle"/>
-      <origin xyz="-0.07 0 0.105" rpy="1.57 0 0"/>
+      <!-- <origin xyz="-0.07 0 0.105" rpy="1.57 0 0"/> -->
+      <origin xyz="-0.08 0 0.105" rpy="1.57 0 0"/>
+
     </joint>
 
     <link name="09_Paper_cup">
@@ -222,7 +226,7 @@
     <link name="10_mug">
       <visual>
         <geometry>
-          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/10_mug.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/10_mug.stl" scale="0.011 0.01 0.01"/>
         </geometry>
         <material name="green">
           <color rgba="0 1 0 1"/>
@@ -260,10 +264,12 @@
       </collision>
     </link>
     <joint name="cup_joint1" type="fixed">
-      <parent link="table_link"/>
+      <parent link="${prefix}base_link"/>
       <child link="Target_Cup"/>
-      <origin xyz="0.17 -0.23 0.0625" rpy="0 1.57 0"/>
+      <origin xyz="0.48 0.18 0.0525" rpy="0 1.57 -1.57"/>
     </joint>
+
+
 
   <xacro:macro name="load_arm" params="parent:='' dof vision prefix *origin">
     <link name="${prefix}base_link">
